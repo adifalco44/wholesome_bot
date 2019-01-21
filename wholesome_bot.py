@@ -20,6 +20,7 @@ def download_image(url):
     file_name = url
     file_name=file_name.replace('/','_')
     file_name=file_name.split(':')[1]
+    file_name='memes/{0}'.format(file_name)
     if os.path.exists(file_name)==False:
         request = requests.get(url,stream=True)
         if request.status_code == 200:
@@ -35,7 +36,7 @@ def reply_with_image(url,uuid,at):
     file_name = url
     file_name=file_name.replace('/','_')
     file_name=file_name.split(':')[1]
-
+    file_name='memes/{0}'.format(file_name)
     ### DOWNLOAD FILE ###
     if os.path.exists(file_name)==False:
         download_image(file_name)
